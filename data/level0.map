@@ -1,0 +1,42 @@
+11111111111111111111
+10000000000000000001
+10000000000000000001
+10000000000000000001
+10000000000000000001
+10011010105000000001
+10005010150000000001
+10020010130000000001
+10011010103000000001
+10000000000000000001
+10000000000000000001
+10000110000510105001
+10000050005010150001
+10000200051110130001
+10000110500010103001
+10000000000000000001
+10000000000000000001
+10000000000000000001
+100000000000000000a1
+11111111111111111111
+0
+# 0 = floor/air
+# 1 = wall
+# 2 = upper left prism
+# 3 = upper right prism
+# 4 = lower left prism
+# 5 = lower right prism
+# 6 = rotatable upper left prism
+# 7 = rotatable upper right prism
+# 8 = rotatable lower left prism
+# 9 = rotatable lower right prism
+# a = finish
+# b = red switch
+# c = switchable upper left prism
+# d = switchable upper right prism
+# e = switchable lower left prism
+# f = switchable lower right prism
+# g = invisible wall
+# h = teleporter orange
+# i = teleporter cyan
+# j = teleporter magenta
+

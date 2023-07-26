@@ -1,0 +1,17 @@
+GCC=g++
+COMPILERFLAGS=-Wall -I/mingw/include -I/mingw/include/SDL -O2 -fmessage-length=0 -D_GNU_SOURCE=1 -Dmain=SDL_main -DHAVE_OPENGL -DWIN32
+LINKERFLAGS=-L/mingw/lib -lmingw32 -lglu32 -lopengl32 -mwindows -lSDLmain -lSDL -lSDL_mixer 
+OBJS=Icon.o Config.o Bullet.o Dynent.o Gamestate.o Graphics.o Input.o Level.o Player.o Sound.o Main.o Coord3d.o 
+BINARY=zikzak.exe
+
+default: all
+
+%.o: %.cpp Gfx.h
+	$(GCC) $(COMPILERFLAGS) -c -o $@ $<
+
+all: $(OBJS)
+	$(GCC) -o $(BINARY) $(OBJS) $(LINKERFLAGS) 
+
+clean:
+	-rm -f $(OBJS) $(BINARY)
+
