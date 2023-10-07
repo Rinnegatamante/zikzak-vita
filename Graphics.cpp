@@ -258,9 +258,12 @@ void Graphics::renderscene(Level &l, Player &p, Sound &s, Gamestate &gs) {
 		default:
 			break;
 	}
-	
+#ifdef __vita__
+	vglSwapBuffers(GL_FALSE);
+#else
 	// swap buffers to display
 	SDL_GL_SwapBuffers();
+#endif
 }
 
 
