@@ -1,11 +1,14 @@
 TARGET		:= Zik-Zak
 SOURCES	:= .
 
-LIBS = -lSDL_Mixer -lSDL -lvitaGL -lvitashark -lmathneon -lSceShaccCgExt -lSceShaccCg_stub -ltaihen_stub \
-	-lvorbisfile -lvorbis -logg -lMikmod -lFLAC \
+PKG_CONFIG = arm-vita-eabi-pkg-config
+SDL_LIBS := $(shell $(PKG_CONFIG) --static --libs SDL_mixer)
+
+LIBS = -Wl,--start-group $(SDL_LIBS) -lvitaGL -lvitashark -lmathneon -lSceShaccCgExt -lSceShaccCg_stub -ltaihen_stub \
+	-lvorbisfile -lvorbis -logg -lmikmod -lFLAC \
 	-lpthread -lSceAudio_stub -lSceAudioIn_stub -lSceHid_stub -lz -lScePower_stub -lSceAppUtil_stub \
 	-lSceAppMgr_stub -lSceCommonDialog_stub -lSceCtrl_stub -lSceGxm_stub -lSceMotion_stub -lSceNet_stub \
-	-lSceTouch_stub -lSceSysmodule_stub -lSceKernelDmacMgr_stub -lSceDisplay_stub -lSceIme_stub
+	-lSceTouch_stub -lSceSysmodule_stub -lSceKernelDmacMgr_stub -lSceDisplay_stub -lSceIme_stub -Wl,--end-group
 
 CFILES   := $(foreach dir,$(SOURCES), $(wildcard $(dir)/*.c))
 CPPFILES   := $(foreach dir,$(SOURCES), $(wildcard $(dir)/*.cpp))
